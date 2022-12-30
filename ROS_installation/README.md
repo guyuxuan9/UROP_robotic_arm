@@ -3,9 +3,11 @@
 - During installation, I have encountered some problems and fixed the bugs:
     - E.g. This error message always showed up when I tried to re-installed ros2
     <img width="854" alt="cc038ed74636626ebb913a8b2238c1e" src="https://user-images.githubusercontent.com/58468284/210111009-4a8c45a0-0fab-46a3-afd4-4562c972a47d.png">
+    
     This is solved by deleting **20snapd.conf** according to [This website](https://github.com/microsoft/WSL/issues/4640) described.
     - E.g. "The repository does not have a release file"
     <img width="748" alt="6af1b78b30c8235190a7508306e98bf" src="https://user-images.githubusercontent.com/58468284/210111425-a2511044-e536-4d5b-b129-b61232ba1217.png">
+    
     This is solved by removing **.list** file from **/etc/apt/sources.list.d** according to [This website](https://answers.ros.org/question/402151/the-repository-does-not-have-a-release-file/) described.
 
 - After installing **ros-humble-desktop**, I have tried the **talker-listener** example.
