@@ -16,7 +16,8 @@
 - After building the ros2 container, the **talker.py** can be executed and the following is printed in the terminal in VS code:
 ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/405c50c3-bdef-4757-9072-c8736fe6f8b3)
 - After running **talker2.py**, the following is printed:
-![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/06793fc0-707e-471e-8772-0a1ba85f1c07)
+
+    ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/06793fc0-707e-471e-8772-0a1ba85f1c07)
 
 
 
