@@ -1,0 +1,23 @@
+[2.337s] Invoking command in '/ros2/my_py_pkg': PYTHONPATH=/ros2/my_py_pkg/build/my_py_pkg/prefix_override:/ros2/my_py_pkg/install/my_py_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/my_py_pkg build --build-base /ros2/my_py_pkg/build/my_py_pkg/build install --record /ros2/my_py_pkg/build/my_py_pkg/install.log --single-version-externally-managed
+[3.201s] running egg_info
+[3.204s] writing build/my_py_pkg/my_py_pkg.egg-info/PKG-INFO
+[3.207s] writing dependency_links to build/my_py_pkg/my_py_pkg.egg-info/dependency_links.txt
+[3.207s] writing entry points to build/my_py_pkg/my_py_pkg.egg-info/entry_points.txt
+[3.208s] writing requirements to build/my_py_pkg/my_py_pkg.egg-info/requires.txt
+[3.208s] writing top-level names to build/my_py_pkg/my_py_pkg.egg-info/top_level.txt
+[3.215s] reading manifest file 'build/my_py_pkg/my_py_pkg.egg-info/SOURCES.txt'
+[3.217s] writing manifest file 'build/my_py_pkg/my_py_pkg.egg-info/SOURCES.txt'
+[3.220s] running build
+[3.220s] running build_py
+[3.221s] running install
+[3.228s] running install_lib
+[3.231s] running install_data
+[3.234s] running install_egg_info
+[3.241s] removing '/ros2/my_py_pkg/install/my_py_pkg/lib/python3.10/site-packages/my_py_pkg-0.0.0-py3.10.egg-info' (and everything under it)
+[3.244s] Copying build/my_py_pkg/my_py_pkg.egg-info to /ros2/my_py_pkg/install/my_py_pkg/lib/python3.10/site-packages/my_py_pkg-0.0.0-py3.10.egg-info
+[3.248s] running install_scripts
+[3.348s] Installing listener script to /ros2/my_py_pkg/install/my_py_pkg/lib/my_py_pkg
+[3.352s] Installing pub script to /ros2/my_py_pkg/install/my_py_pkg/lib/my_py_pkg
+[3.353s] Installing talker script to /ros2/my_py_pkg/install/my_py_pkg/lib/my_py_pkg
+[3.354s] writing list of installed files to '/ros2/my_py_pkg/build/my_py_pkg/install.log'
+[3.491s] Invoked command in '/ros2/my_py_pkg' returned '0': PYTHONPATH=/ros2/my_py_pkg/build/my_py_pkg/prefix_override:/ros2/my_py_pkg/install/my_py_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/my_py_pkg build --build-base /ros2/my_py_pkg/build/my_py_pkg/build install --record /ros2/my_py_pkg/build/my_py_pkg/install.log --single-version-externally-managed
