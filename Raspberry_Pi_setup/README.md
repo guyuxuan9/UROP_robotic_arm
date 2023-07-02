@@ -61,6 +61,10 @@
 
 
 # Troubleshooting
-![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/da83bf66-ca1a-4a61-a5d8-e1992ab6631f)
+- When I rewrite the SD card, the following error occurs.  See this [link](https://blog.csdn.net/qq_44504968/article/details/105799093) for solution.
+    ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/da83bf66-ca1a-4a61-a5d8-e1992ab6631f)
 
--  See this [link](https://blog.csdn.net/qq_44504968/article/details/105799093) for solution
+
+- When I try to connect to the raspberry pi desktop to see the GUI using VNC server, the following error occurs. See this [link](https://www.youtube.com/watch?v=hA9r13ZUS08) for solution.
+    ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/2c1db8e1-aa6d-4808-8974-642030fb0331)
+
