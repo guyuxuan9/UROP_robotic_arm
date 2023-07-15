@@ -23,7 +23,7 @@ According to the figure above, given the position of the end effector ($x_p$, $y
 From the figure, the lengths of some segments can be written directly, $$\alpha = \theta_3 + \theta_4 + \theta_5$$ $$PD = l_4 sin(\alpha)$$ $$CD = l_4 cos(\alpha)$$ $$OP\_ = \sqrt{x_p^2 + y_p^2}$$ $$AF = AE - FE = OP\_ - CD$$ $$CF = DE = z_p - l_1 - PD$$ $$AC = \sqrt{AF^2 + CF^2}$$
 
 ### Solve $\theta_4$
-Using cosine rule, $$ cos \angle ABC = \frac {l_2^2 + l_3^2 - AC^2} {2l_2l_3}$$ Therefore, $$\theta_4 = 180\degree - \angle ABC $$
+Using cosine rule, $$cos \angle ABC = \frac {l_2^2 + l_3^2 - AC^2}{2l_2l_3}$$ Therefore, $$\theta_4 = 180\degree - \angle ABC $$
 
 ### Solve $\theta_5$
 Again, using cosine rule, $$cos \angle CAB = \frac{AC^2+l_2^2-l_3^2}{2l_2AC}$$ $$\angle CAF = arctan(\frac{CF}{AF})$$ Therefore, $$\theta_5 = \angle CAF - \angle CAB$$
