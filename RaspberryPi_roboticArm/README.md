@@ -1,4 +1,4 @@
-## Setup Raspberry Pi for UART communication
+# Setup Raspberry Pi for UART communication
 - Since Ubuntu is used as the OS on my raspberry pi, **raspi-config** is mannually installed to the system.
 
 
@@ -26,11 +26,20 @@ After: <img width="455" alt="887d93a763d0bc5c8a3c5b074fd6525" src="https://user-
 - Finally, connect the wires between robot control board and Raspberry Pi UART (GPIO) ports. Tx -- Rx, Rx -- Tx, and GND -- GND.
 ![image](https://user-images.githubusercontent.com/58468284/221024419-9c2ba4fd-3334-4b2b-ab52-db5e0f3dfbdc.png)
 
-## Send command from Raspberry Pi to the robotic arm
+# Send command from Raspberry Pi to the robotic arm
 
 - Use [WinSCP](https://winscp.net/eng/index.php) to transfer files between local PC and remote Raspberry Pi.
 - **Servo_control.py** is used to send commands
 - **Serial_communication_protocols.pdf** is used as a reference
+- **NB:** for the robotic arm with the following configuration, the **Rx, Tx, GND** are labelled WRONG!!!!!!!!!!
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/057c72b0-6896-47d7-b74a-4e70172d19d1)
+The correct label should be like this:
+
+![61570317d511cd651053e5d572d698e](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/86fc8460-fc7d-4f63-a670-d0c87e269101)
+
+
+# Videos
 - Move single servo (click to view the video)
 [![](https://user-images.githubusercontent.com/58468284/221028038-96ce8b61-0999-4e8c-9f32-e5c28283bf38.png)](https://youtu.be/ESTDfcogDbU)
 
@@ -39,6 +48,6 @@ After: <img width="455" alt="887d93a763d0bc5c8a3c5b074fd6525" src="https://user-
 
 
 
-## Reference
+# Reference
 - [Reference1 -- raspi-config installation](https://elbruno.com/2022/09/02/raspberrypi-install-raspi-config-on-ubuntu-22-04-1-lts/)
 - [Reference2 -- raspberry pi UART configuration](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)
