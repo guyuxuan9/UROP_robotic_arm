@@ -38,3 +38,42 @@ Again, using cosine rule, $$cos \angle CAB = \frac{AC^2+l_2^2-l_3^2}{2l_2AC}$$ $
 ### Solve $\theta_3$
 $$\theta_3 = \alpha - \theta_5 + \theta_4$$
 Here, instead of $-\theta_4$, $+ \theta_4$ is used because it is in the negative direction (clockwise).
+
+# Move the robotic arm according to the inverse kinematics
+The following shows the movement of the robotic arm according to different provided coordinates and pitch angle in the **arm_move.py** file.
+
+### Coordinates: (0, 15, 15), (-15, 15, 15), (0, 15, 15), (15, 15, 15) and (0, 15, 15) | Pitch Angle: 0
+
+arm_move.py:
+```
+    AK.setPitchRangeMoving((0, 15, 15), 0, -90, 0, 1000)
+    time.sleep(1)
+    AK.setPitchRangeMoving((-15, 15, 15), 0, -90, 0, 1000)
+    time.sleep(1)
+    AK.setPitchRangeMoving((0, 15, 15), 0, -90, 0, 1000)
+    time.sleep(1)
+    AK.setPitchRangeMoving((15, 15, 15), 0, -90, 0, 1000)
+    time.sleep(1)
+    AK.setPitchRangeMoving((0, 15, 15), 0, -90, 0, 1000)
+    time.sleep(1)
+```
+
+Video:
+
+[![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/b4f19547-fae1-4cd1-85ea-4a3381584c95)](https://youtu.be/XAyS835lW44)
+
+### Coordinates: (0, 15, 15) | Pitch Angle: 0, -45, 0
+
+arm_move.py:
+```
+    AK.setPitchRangeMoving((0, 15, 15), 0, -90, 0, 1000)
+    time.sleep(1)
+    AK.setPitchRangeMoving((0, 15, 15), -45, -90, 0, 1000)
+    time.sleep(1)
+    AK.setPitchRangeMoving((0, 15, 15), 0, -90, 0, 1000)
+    time.sleep(1)    
+```
+
+Video:
+
+[![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/d8cb6989-ab0c-4bd4-8590-e86717e8fe38)](https://youtu.be/IGC8BH6Do3U)
