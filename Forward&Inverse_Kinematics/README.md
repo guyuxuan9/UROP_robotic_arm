@@ -60,7 +60,7 @@ arm_move.py:
 
 Video:
 
-[![](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/b4f19547-fae1-4cd1-85ea-4a3381584c95)](https://youtu.be/XAyS835lW44)
+https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/83031a43-dd62-4d46-b843-e409b5252c3a
 
 ### Coordinates: (0, 15, 15) | Pitch Angle: 0, -45, 0
 
@@ -76,4 +76,4 @@ arm_move.py:
 
 Video:
 
-[![](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/d8cb6989-ab0c-4bd4-8590-e86717e8fe38)](https://youtu.be/IGC8BH6Do3U)
+https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/8dc86be4-deb9-4990-8240-1bc4c4d690f5
