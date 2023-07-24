@@ -6,3 +6,8 @@
 - **Morphological Transformations** is used to further remove noises and detect the boundaries.
 In particular, two techniques **Opening** and **Closing** are used.
 - Get the contour coordinates and draw the bounding box.
+
+# Color Tracking
+
+https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/4b561b99-cdf3-464b-9640-8003044d441d
+
