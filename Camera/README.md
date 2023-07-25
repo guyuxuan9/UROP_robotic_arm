@@ -24,6 +24,8 @@ E.g.
 
 ![7a6ed6d79620f30066b6d5e61e47cb9](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/585e4179-ebe4-4afc-8aab-3482d3260578)
 
+- Note that the robotic arm will stop moving when the calculated angle from inverse kinematics is out of the given range. Normally, this happens when the object moves is "too high" for the camera. To make the robotic arm behave normally again, simply place the object at a high position and move downwards slowly and it will track the object successfully. 
+
 
 **Video:**
 
