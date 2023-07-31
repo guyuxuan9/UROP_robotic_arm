@@ -1,4 +1,36 @@
 # Setup Raspberry Pi 4 Model B
+
+## Ubuntu 22.04 Desktop
+
+### Raspberry Pi Imager 
+- Use this [official tool](https://www.raspberrypi.com/software/) to write ubuntu desktop image to the SD card
+
+### Download ubuntu image manually
+- Download the **.xz** file and decompress it to get the **.img** file
+- Use [Win32DiskImager](https://sourceforge.net/projects/win32diskimager/files/latest/download) to write the **.img** file to the SD card
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/68dd39c2-9b09-4da9-a674-f3310f89a124)
+
+After installing the system, it's the time to configure WIFI so that the it can connect to the specified WIFI automatically when it is powered on. Follow the procedure mentioned in [this website](https://arstech.net/raspberry-pi-4-ubuntu-wifi/).
+
+In order to remotely connect to the raspberry pi, the remote desktop setting needs to be turned on. Go to **Settings** in ubuntu and find **Sharing** on the left menu. Turn on **Remote Desktop**.
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/b58b1edb-75db-4039-93f1-d7ced1d072c5)
+
+When I first tried to connect to the desktop using VNC viewer, the following error is showed.
+
+```
+reconnecting to VNC Server...
+Protocol Error: bad rectangle: 5376x0 at 0,5418 exceeds 1920x1080 at 0,0
+```
+
+This can be solved by changing the picture quality to **Medium**. Here is the [reference website](https://askubuntu.com/questions/1448924/how-do-i-get-headless-vnc-working).
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/3ef70a8e-2f37-4c30-a580-6e67fc16d352)
+
+Finally, the raspberry pi can be accessed through VNC viewer.
+
+## Raspian OS + Docker
 - [Tutorial website](https://www.kevsrobots.com/learn/learn_ros/02_pi_setup.html), [tutorial video](https://www.youtube.com/watch?v=03wKo-riJlA)
 - Connect to Raspberry Pi:
     - **SSH**: open a terminal, type 
