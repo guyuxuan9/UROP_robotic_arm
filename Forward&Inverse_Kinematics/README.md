@@ -16,12 +16,21 @@ In order to simplify the calculation, we do NOT consider servo 1 (end-effector) 
 
 The coordinates of the end effector in 3-dimentional space is ($x_p$, $y_p$, $z_p$) and the base frame is $x_0y_0z_0$. The projection of the end effector $P$ onto the $x_0y_0$ plane.
 
-![f0d10cf1c0f36153717ae5965d29314](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/d2aa946a-04c8-4191-8a7b-4cf4ce7759c5)
+**Case 1**: $CF>0$ (point C is above the line AE)
+$$\theta_5 = \angle{BAC} + \angle{CAF}$$
+
+![bc343055eaff908bd3ec82806ce82e8](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/2ae798f1-9bb9-4b2e-9071-940ac6eb79f4)
+
+**Case 2**: $CF<0$ (point C is below the line AE)
+$$\theta_5 = \angle{BAC} - \angle{CAF}$$
+
+![9aa6986d505d3686a698894df3610a9](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/b1666638-0f74-4d4a-8313-e1da9cfd55f4)
+
 
 According to the figure above, given the position of the end effector ($x_p$, $y_p$, $z_p$), the angle between the paw and the horizontal plane $\alpha$, and lengths of the 4 links $l_1$, $l_2$, $l_3$, $l_4$, the angles $\theta_3$, $\theta_4$ and $\theta_5$ can be solved using geometric methods.
 
 From the figure, the lengths of some segments can be written directly, 
-$$\alpha = \theta_3 + \theta_4 + \theta_5$$ 
+$$\alpha = \theta_3 - \theta_4 + \theta_5$$ 
 $$PD = l_4 sin(\alpha)$$ 
 $$CD = l_4 cos(\alpha)$$ 
 $$OP' = \sqrt{x_p^2 + y_p^2}$$ 
@@ -37,7 +46,7 @@ Again, using cosine rule, $$cos \angle CAB = \frac{AC^2+l_2^2-l_3^2}{2l_2AC}$$ $
 
 ### Solve $\theta_3$
 $$\theta_3 = \alpha - \theta_5 + \theta_4$$
-Here, instead of $-\theta_4$, $+ \theta_4$ is used because it is in the negative direction (clockwise).
+Here, instead of $-\theta_4$, $+ \theta_4$ is used because it is in the negative direction (below the line AB).
 
 # Move the robotic arm according to the inverse kinematics
 The following shows the movement of the robotic arm according to different provided coordinates and pitch angle in the **arm_move.py** file.
