@@ -35,6 +35,11 @@ This is my Undergraduate Research Opportunities Program (UROP) in 2023 summer. T
 ## [Bus servo motor control](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/RaspberryPi_roboticArm)
 - Examine the servo motor communication protocols and decide to use UART protocol to send instructions from raspberry pi to the servo motor
 - Follow the instruction package format and successfully move individual motor independently
+  
+
+https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/456c8372-d106-44ce-ba5e-76ee459810f1
+
+
 
 ## [Color Tracking](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/Camera)
 - Use OpenCV to identify the blue object and draw a bounding box and a minimum enclosing circle around it in the live video
