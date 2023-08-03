@@ -6,6 +6,10 @@
 - **Morphological Transformations** is used to further remove noises and detect the boundaries.
 In particular, two techniques **Opening** and **Closing** are used.
 - Get the contour coordinates and draw the bounding box.
+- To see the Color Identification effect from the camera, please run **ColorCoordinate.py** in raspberry pi
+    ```
+    python3 ColorCoordinate.py
+    ```
 
 
 # Color Tracking
