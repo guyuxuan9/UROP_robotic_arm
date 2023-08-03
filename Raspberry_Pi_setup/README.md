@@ -42,6 +42,10 @@ Finally, the raspberry pi can be accessed through VNC viewer.
     ```
     sudo apt-get install xrdp
     ```
+- Setup (default) Wifi:
+    ```
+    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+    ```
 - >Raspberry Pi OS is based on Debian which receives Tier 3 support, but it can run Ubuntu docker containers for Tier 1 support.
 
     In this setup, instead of using Ubuntu OS, Raspberry Pi OS (64 bits) is used and ROS is running within a **Docker container**.
