@@ -52,3 +52,8 @@ https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/ed90fef1-d914-4d23
 - Tune the P,I,D values to make the robot keeps tracking the object in x, y, z three dimensions
 
 [![Color Tracking using robotic arm](https://user-images.githubusercontent.com/58468284/257811600-6ce9408b-ddb9-4418-8195-19763f5aa868.png)](https://youtu.be/yXHFDTK_ZeQ)
+
+
+
+## TODO:
+- ACK (test delay)
