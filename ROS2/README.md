@@ -79,158 +79,18 @@ source install/setup.bash
 ros2 run <PACKAGE_NAME> NAME_SPECIFIED_AT_THE_ENTRY_POINT
 ```
 ## Test for command sent to the robot
-**bus_servo_control.py** is a node () that publishes data to a topic called **/servo_controllers/port_id_1/multi_id_pos_dur**. The format of the message sent is specified in the **MultiRawIdPosDur.msg** file which is like 
-```
-[ [servo_id, position, duration], [servo_id, position, duration], [servo_id, position, duration], ...]
-```
-This acts like a server and the following shows the running results. Here, I did not write it into a class. Instead, simple print statement is used for testing. 
+- Details at [ROS2_MEssages.md](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/ROS2/ROS2_MEssages.md)
 
-![VirtualBox_Ubuntu_yuxuan_28_07_2023_21_22_41](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/5cd78734-6197-44f2-8182-01f09cb0c49c)
+    ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/6b4a6be9-c2bf-472d-9751-97d7449554de)
 
-In addition, **test_subscriber.py** is written to test the publisher and the result is shown below. From the message displayed, node id, topic id and message received can be clearly identified.
-
-![VirtualBox_Ubuntu_yuxuan_28_07_2023_21_25_07](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/4d822d4e-4b23-4e56-8d59-3df3257c2561)
-
-In the meantime, I can check the current active nodes and topics in another terminal:
-
-![VirtualBox_Ubuntu_yuxuan_28_07_2023_21_26_01](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/44c913c4-df56-4a3a-8a5d-2104560c3891)
 
 ## Test for publishing video streams using rqt_image_view
-The aim of this test is to show that the live video stream captured by the camera on the robotic arm can be viewed in the rqt_image_viewer in ros2.
+- Details at [Video_Publisher.md](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/ROS2/Video_Publisher.md)
 
-First of all, change the **dockerfile** from ros core to desktop version, so that necessary packages are installed. This can be done by changing the *Install ros2 package* section 
-
-from
-
-```
-# install ros2 packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-humble-core=0.10.0-1* \
-    && rm -rf /var/lib/apt/lists/*
-```
-
-to
-
-```
-# install ros2 packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-humble-desktop=0.10.0-1* \
-    && rm -rf /var/lib/apt/lists/*
-```
-**image_publisher.py** is the source file to continuously publish video frames to the topic *video_topic*. The publisher message type is described in **Image.msg** from the package **sensor_msgs.msg**. Please refer to the [code from official website](https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Image.msg). The **Image.msg** file can also be found locally in the docker container:
-
-![713dc1516859a01bd10ce2ed6c1204e](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/5333c233-1593-4e6f-93ae-d65c88a69c9c)
-
-Additionally, **cv_bridge** library is used to convert between ROS Image messages and OpenCV images. The figure below illustrates this concept:
-
-![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/7fe66b6c-1627-49dc-a716-f88f888e90c4)
-
-Furthermore, the dependency **image_transport** is added to the dependency list. 
-
->It is a package that provides a flexible and efficient way to transport images and videos over the ROS communication infrastructure. It's designed to optimize the transmission of image data, reducing the overhead associated with sending images between nodes.     
-
-Overall, the following dependencies are added to the dependency list in the **package.xml** file:
-- **rclpy** (to use ros2 in python)
-- **image_transport** (standard to transport images in ros2 infrasturcture)
-- **cv_bridge** (convert between ros2 Image msg and opencv image)
-- **sensor_msgs** (to include Image.msg file)
-- **std_msgs** (standard message types for basic data types, e.g. Int, String)
-- **opencv2** (image processing lib)
-
-Before running the ros2 package, don't forget to map the camera device from outside to inside the container. This can be done by adding the following lines:
-
-```
-    devices:
-      - /dev/video0:/dev/video0
-```
-
-Finally, in order to make GUI work in the docker container, we need to redirect any graphics calls to outside our container into the hosts’s X11 environment.  This can be done by following the following procedure:
-
-```
-xhost local:root
-```
-
-```
-docker-compose up -d
-```
-
-```
-docker exec -it IMAGE_NAMES bash
-```
-
-Now, we are in the docker container. Build the package. Run the package. Then in another terminal in the VNC viewer, type the following in the docker container:
-
-```
-ros2 run rqt_image_view rqt_image_view
-```
-and select the video_topic. Then, the live video stream should be shown:
-
-![ea0dfc06171fc15bed3490caf1880f3](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/8853035a-1724-42f3-bde7-8ced0abdf552)
-
-
-#### Some references:
-- [Publish images to a topic in ROS2](https://automaticaddison.comgetting-started-with-opencv-in-ros-2-foxy-fitzroy-python/) 
-- [rqt_image_view in ROS2](https://husarion.com/tutorials/ros2-tutorials1-ros2-introduction/)
-- [Error: "can't open camera by index" in docker container](https://gitlab.com/voxl-publicvoxl-docker-images/roskinetic-docker/-/issues/4)
+    ![ea0dfc06171fc15bed3490caf1880f3](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/8853035a-1724-42f3-bde7-8ced0abdf552)
 
 ## Test for ROS2 parameters
-My initial aim is to create a node that reads the **LAB** ranges from a **yaml** config file and store them as its parameters for the colour detection. **paramNode.py** file is the test file created for this objective.
+- Details at [ROS2_Parameters.md](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/ROS2/ROS2_Parameters.md)
 
-Note that the path to the *yaml* file is the path in the docker container. Therefore, in my case, it starts with */ros2/ros2_ws/*. The **lab_config.yaml** file is like this:
+    ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/58b5ffc3-dbbf-4e08-ac97-4d6a2b70b5de)
 
-```
-color_range_list:
-  blue:
-    min: [66, 0, 28]
-    max: [159, 179, 104]
-```
-
-Hence, two parameters are declared, which are **color_range_list.blue.max** and **color_range_list.blue.min** respectively. The parameter type is List. After running this node, the following is shown in the terminal:
-
-![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/88a57f45-5bd3-4888-98ca-c1ca92d53cf0)
-
-The active parameter can also be viewed in another terminal. Also, the value of the parameter can be accessed as well.
-
-![9e2698df3ac6d62ff804123387efe55](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/818984d0-43ec-42f8-8f82-71f533e9f44e)
-
-Howerver, when I try to access the parameter from another node, it seems that this is not allowed in ROS2.
-
-|                   ROS1                        | ROS2|
-|:----------------------------------------------|:------------------------------|
-|Parameters are handled by the parameter server (ROS master)|No global parameter server|
-|Parameters are global and can be accessed by any node in the system | Parameters are defined as node-specific |
-
-**ROS1:**
->rosparam allows you to store and manipulate data on the ROS Parameter Server. 
-
-**ROS2:**
->A parameter is a configuration value of a node. You can think of parameters as node settings.
-
-Therefore, I gave up using a param node to store the **LAB** ranges. Instead, a member variable called **lab_data** is declared in the class to store the **LAB** ranges. Additionally, the image processing part has been added to the class as a member function called **img_proc**. Finally, the processed image and raw image are published to the topics *video_topic/processed_image* and */video_topic/raw_image* respectively at a frame rate of 30fps. The full code can be viewed in **img_publisher2.py**. The node graph is drawn by rqt below:
-
-![81a2980607193598451e07262ad1064](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/11525074-b3e6-4605-ab44-3990aebb2bc2)
-
-If the *video_topic/processed_image* topic is selected, the following is shown in the rqt_image_viewer
-
-![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/58b5ffc3-dbbf-4e08-ac97-4d6a2b70b5de)
-
-In order to make the code more readable and tidy, I have managed ot move some functions into another module and import it. Currently, the directory is like this:
-```
-testing/
-├── __init__.py
-├── package.xml
-├── setup.py
-└── src/
-    ├── __init__.py
-    ├── image_publisher.py
-    └── lib.py
-    ...
-
-```
-**lib.py** is the module that has some useful customised functions. It is imported in other files.
-
-In the **image_publisher.py**, the import statement should be like this:
-
-```
-from testing.lib import getAreaMaxContour
-```
