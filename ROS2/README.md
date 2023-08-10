@@ -79,7 +79,7 @@ source install/setup.bash
 ros2 run <PACKAGE_NAME> NAME_SPECIFIED_AT_THE_ENTRY_POINT
 ```
 ## Test for command sent to the robot
-- Details at [ROS2_MEssages.md](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/ROS2/ROS2_MEssages.md)
+- Details at [ROS2_Messages.md](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/ROS2/ROS2_Messages.md)
 
     ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/6b4a6be9-c2bf-472d-9751-97d7449554de)
 
