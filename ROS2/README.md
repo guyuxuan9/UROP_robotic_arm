@@ -213,3 +213,24 @@ Therefore, I gave up using a param node to store the **LAB** ranges. Instead, a 
 If the *video_topic/processed_image* topic is selected, the following is shown in the rqt_image_viewer
 
 ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/58b5ffc3-dbbf-4e08-ac97-4d6a2b70b5de)
+
+In order to make the code more readable and tidy, I have managed ot move some functions into another module and import it. Currently, the directory is like this:
+```
+testing/
+├── __init__.py
+├── package.xml
+├── setup.py
+└── src/
+    ├── __init__.py
+    ├── image_publisher.py
+    └── lib.py
+    ...
+
+```
+**lib.py** is the module that has some useful customised functions. It is imported in other files.
+
+In the **image_publisher.py**, the import statement should be like this:
+
+```
+from testing.lib import getAreaMaxContour
+```
