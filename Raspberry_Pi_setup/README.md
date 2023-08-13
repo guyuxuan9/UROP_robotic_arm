@@ -71,6 +71,46 @@ Finally, the raspberry pi can be accessed through VNC viewer.
 
     ![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/06793fc0-707e-471e-8772-0a1ba85f1c07)
 
+# Setup WiFi
+The objective is to setup wifi id and passwords in the config file so that the raspberry pi can connect to wifi automatically when it is powered on. Additionally, when there are more than one wifi available, connect to the wifi with the highest specified priority.
+
+First of all, the wifi setting file is */etc/wpa_supplicant/wpa_supplicant.conf*. Therefore, edit the file using the nano editor from the terminal:
+
+```
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Now, add the following to the file:
+
+```
+network={
+    ssid="wifi_A"
+    psk="passwordOfA"
+    priority=1 # lower priority
+}
+network={
+   ssid="wifi_B"
+   psk="passwordOfB"
+   priority=2 # higher priority
+}
+```
+
+The higher the value, the higher the priority is. In this case, when "wifi_A" and "wifi_B" are both available, the raspberry pi will connect to "wifi_B". 
+
+Furthermore, if the iPhone hotspot is used, don't forget to turn on the option called **Maximise Compatibility**. The 2.4GHz and 5GHz wifi-bands are the most popular options, and 5GHz is the default one since it offers higher speed. However, raspberry pi's Wifi can only connect to 2.4GHz one, and therefore, **Maximise Compatibility** switches the Wifi to 2.4GHz band so that the raspberry pi can find it.
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/6389f4e9-9a33-4f77-ab7e-aaa4c0c4b575)
+
+After saving the file, reboot it.
+
+```
+sudo reboot
+```
+## Reference
+- [Set up wifi ssid and psk](https://raspberrytips.com/raspberry-pi-wifi-setup/)
+- [Set wifi priority](https://raspberrypi.stackexchange.com/questions/58304/how-to-set-wifi-network-priority)
+- [Maximise Compatibility in iPhone hotspot](https://timesofindia.indiatimes.com/gadgets-news/explained-maximum-compatibility-option-within-personal-hotspot-on-iphone/articleshow/95916069.cms)
+
 # Create packages, publisher and subscriber
 - **pub.py** publishes "Hello World" to the topic "/Hello"
 - **sub.py** subscribes to the topic "/Hello"
