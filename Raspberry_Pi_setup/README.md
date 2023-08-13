@@ -106,6 +106,11 @@ After saving the file, reboot it.
 ```
 sudo reboot
 ```
+
+In addition, when the PC (windows) mobile network is turned on, there are two IP addresses associated with it. The first one is the IP address from the router. In this case, the IP address of PC from the router is 192.168.1.102. In the meantime, the PC is giving other devices 'hotspot', which means there is a subnet where the PC acts as a router. The IP address of PC inside this subnet, in this case, is 192.168.137.1. Note that the gatway device in a subnet always has the IP address of the format xxx.xxx.xxx.1.
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/e5a8ba8a-cb91-41d3-be20-5cdcb6aeae37)
+
 ## Reference
 - [Set up wifi ssid and psk](https://raspberrytips.com/raspberry-pi-wifi-setup/)
 - [Set wifi priority](https://raspberrypi.stackexchange.com/questions/58304/how-to-set-wifi-network-priority)
