@@ -1,0 +1,2 @@
+# ROS2 Workspace
+This is my ROS2 workspace. **tracking** is a package that contains the functions used to track the colored object. **robot_interface** is a package that contains all the **.msg** and **.srv** interfaces.  
