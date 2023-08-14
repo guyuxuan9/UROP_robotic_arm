@@ -3,7 +3,6 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 from robot_interfaces.msg import RawIdPosDur
 from robot_interfaces.msg import MultiRawIdPosDur
-from robot_interfaces.msg import Controller
 import cv2
 import yaml
 import math
@@ -28,21 +27,12 @@ st = True
 
 AK = ArmIK()
 
-class TrackerClass(Node):
+class VideoPublisher(Node):
     def __init__(self):
-        super().__init__('tracker')
+        super().__init__('video_publisher')
         self.raw_publisher = self.create_publisher(Image, 'video_topic/raw_image', 10)
         self.processed_publisher = self.create_publisher(Image, 'video_topic/processed_image',10)
         self.motion_publisher = self.create_publisher(MultiRawIdPosDur,'motion_topic/multi_id_pos_dur',10)
-        self.controller_input_publisher = self.create_publisher(Controller, 'controller/input',10)
-        
-        self.subscription = self.create_subscription(
-            Controller,
-            'controller/output',
-            self.contrller_output_callback,
-            10)
-        self.subscription  # prevent unused variable warning
-        
         
         with open('/ros2/ros2_ws/src/testing/testing/lab_config2.yaml', 'r') as file:
             self.lab_data = yaml.safe_load(file)  # dictionary
@@ -57,10 +47,7 @@ class TrackerClass(Node):
         self.bridge = CvBridge()
         self.capture = cv2.VideoCapture(0)  # Open the default camera (change the index if needed)   
           
-    def contrller_output_callback(self,msg):
-        global x_dis, y_dis, z_dis
-        x_dis, y_dis, z_dis = msg.controller_out 
-
+    
     def img_proc(self,img):
         global x_dis, y_dis, z_dis
         global st
@@ -68,10 +55,7 @@ class TrackerClass(Node):
         img_copy = img.copy()
         img_h, img_w = img.shape[:2] # img_h = 480， img_w = 640
 
-        # draw a cross at the centre
-        cv2.line(img, (int(img_w / 2 - 10), int(img_h / 2)), (int(img_w / 2 + 10), int(img_h / 2)), (0, 0, 255), 2)
-        cv2.line(img, (int(img_w / 2), int(img_h / 2 - 10)), (int(img_w / 2), int(img_h / 2 + 10)), (0, 0, 255), 2)
-    
+
         frame_resize = cv2.resize(img_copy, size, interpolation=cv2.INTER_NEAREST)
         frame_gb = cv2.GaussianBlur(frame_resize, (3, 3), 3)
         frame_lab = cv2.cvtColor(frame_gb, cv2.COLOR_BGR2LAB)  
@@ -108,7 +92,37 @@ class TrackerClass(Node):
             cv2.circle(img,(center_x,center_y),radius,(0,255,0),2)
             cv2.drawContours(img, [box], -1, self.range_rgb[self.__target_color], 2)
             
-            self.controller_input_publisher.publish(Controller(controller_out=[center_x, area_max, center_y]))
+            
+            x_pid.SetPoint = img_w / 2.0  
+            x_pid.update(center_x)  
+            dx = x_pid.output
+            x_dis += int(dx)  
+
+            x_dis = 0 if x_dis < 0 else x_dis
+            x_dis = 1000 if x_dis > 1000 else x_dis
+
+            y_pid.SetPoint = 9000  
+            # print(area_max)
+            if abs(area_max - 9000) < 50:
+                area_max = 9000
+            y_pid.update(area_max)  
+            dy = y_pid.output
+            y_dis += dy  
+            y_dis = 5.00 if y_dis < 5.00 else y_dis
+            y_dis = 10.00 if y_dis > 10.00 else y_dis
+            
+            if abs(center_y - img_h/2.0) < 20:
+                z_pid.SetPoint = center_y
+            else:
+                z_pid.SetPoint = img_h / 2.0
+                
+            z_pid.update(center_y)
+            dy = z_pid.output
+            z_dis += dy
+
+            z_dis = 32.00 if z_dis > 32.00 else z_dis
+            z_dis = 10.00 if z_dis < 10.00 else z_dis
+            
             self.get_logger().info('x_dis: "%s" y_dis: "%s", z_dis: "%s"' % (x_dis,y_dis,z_dis))
             
             target = AK.setPitchRange((0, round(y_dis, 2), round(z_dis, 2)), 40, 90)
@@ -161,7 +175,7 @@ class TrackerClass(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = TrackerClass()
+    node = VideoPublisher()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

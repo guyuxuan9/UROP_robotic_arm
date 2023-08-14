@@ -21,7 +21,10 @@ setup(
     entry_points={
         'console_scripts': [
             "tracking = tracking.tracking:main",
+            "tracking_old = tracking.tracking_old:main",
             "move = tracking.arm_move:main",
+            "controller_out = tracking.controller:main",
+            "publisher_test = tracking.publisher_test:main",
         ],
     },
 )
