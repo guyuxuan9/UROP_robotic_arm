@@ -11,7 +11,7 @@ x_dis = 500
 y_dis = 10
 Z_DIS = 18
 z_dis = Z_DIS
-x_pid = PID.PID(P=0.1, I=0.00, D=0.008) 
+x_pid = PID.PID(P=0.08, I=0.0000, D=0.0000) 
 y_pid = PID.PID(P=0.0001, I=0, D=0)
 z_pid = PID.PID(P=0.005, I=0, D=0)
 
@@ -66,9 +66,6 @@ class ControllerClass(Node):
         self.controller_publisher.publish(Controller(controller_out=[x_dis, y_dis, z_dis]))
         self.get_logger().info('x_dis: "%s" y_dis: "%s", z_dis: "%s"' % (x_dis,y_dis,z_dis))
         
-    #     self.timer = self.create_timer(1.0/30, self.publish_controller_output) # frame rate: 30fps          
-    
-    # def publish_controller_output(self):
         
     
 

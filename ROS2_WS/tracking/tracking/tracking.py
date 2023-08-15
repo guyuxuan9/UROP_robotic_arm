@@ -109,10 +109,11 @@ class TrackerClass(Node):
             cv2.drawContours(img, [box], -1, self.range_rgb[self.__target_color], 2)
             
             self.controller_input_publisher.publish(Controller(controller_out=[center_x, area_max, center_y]))
-            self.get_logger().info('x_dis: "%s" y_dis: "%s", z_dis: "%s"' % (x_dis,y_dis,z_dis))
+            # self.get_logger().info('x_dis: "%s" y_dis: "%s", z_dis: "%s"' % (x_dis,y_dis,z_dis))
             
             target = AK.setPitchRange((0, round(y_dis, 2), round(z_dis, 2)), 40, 90)
             if target:
+                self.get_logger().info("find solution!")
                 servo_data = target[0]
                 if st:
                     Board.setBusServoPulse(3, servo_data['servo3'], 1000)
@@ -141,7 +142,7 @@ class TrackerClass(Node):
                            RawIdPosDur(id=6,position=servo_data['servo6'],duration=1000)]
                     self.motion_publisher.publish(MultiRawIdPosDur(id_pos_dur_list=lst))
                     
-                    time.sleep(0.03)
+                    time.sleep(0.05)
             
            
         return img

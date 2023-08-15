@@ -25,6 +25,7 @@ setup(
             "move = tracking.arm_move:main",
             "controller_out = tracking.controller:main",
             "publisher_test = tracking.publisher_test:main",
+            "subscriber_test = tracking.subscriber_test:main",
         ],
     },
 )

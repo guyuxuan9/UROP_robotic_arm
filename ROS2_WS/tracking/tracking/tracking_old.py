@@ -128,6 +128,7 @@ class VideoPublisher(Node):
             target = AK.setPitchRange((0, round(y_dis, 2), round(z_dis, 2)), 40, 90)
             if target:
                 servo_data = target[0]
+                self.get_logger().info('servo3: "%s", servo4: "%s", servo5: "%s"' %(servo_data['servo3'], servo_data['servo4'], servo_data['servo5']))
                 if st:
                     Board.setBusServoPulse(3, servo_data['servo3'], 1000)
                     Board.setBusServoPulse(4, servo_data['servo4'], 1000)
@@ -155,7 +156,7 @@ class VideoPublisher(Node):
                            RawIdPosDur(id=6,position=servo_data['servo6'],duration=1000)]
                     self.motion_publisher.publish(MultiRawIdPosDur(id_pos_dur_list=lst))
                     
-                    time.sleep(0.03)
+                    time.sleep(0.05)
             
            
         return img
