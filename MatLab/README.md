@@ -55,6 +55,7 @@ Download the [Visual Studio Community 2022](https://visualstudio.microsoft.com/z
 Don't forget to click **Windows 11 SDK** and **Develop with C++ desktop**!!
 
 ## MabLab
+### Environment setup
 According to [ROS Toolbox System Requirements](https://au.mathworks.com/help/ros/gs/ros-system-requirements.html), I choose to install the following versions of the softwares.
 
 |          Software            | Version |
@@ -62,7 +63,7 @@ According to [ROS Toolbox System Requirements](https://au.mathworks.com/help/ros
 | Matlab                       | R2023a  |
 | Visual Studio (C++ Compiler) | 2022    |
 | Python                       | 3.8     |
-|                              |         |
+
 
 In the first time of using the ROS Toolbox, remember to create the python environment. In the top menu, go to *Home/Environment/Preference*, find *ROS Toolbox*, click *Open ROS Toolbox Preferences*. Then, fill in the python executable path and click *Recreate Python Environment*. 
 
@@ -72,5 +73,33 @@ mex -setup cpp
 ```
 Then, follow the instruction to change the compiler.
 
+### Generate ROS 2 Custom Messages in MATLAB ([Reference](https://au.mathworks.com/help/ros/ug/_mw_6d3d1e8b-6b64-4d0b-95cf-ef6d7a2d3abf.html))
+In the custom message type folder, the structure is shown below:
+```
+├── custom
+    ├── robot_interfaces
+        ├──msg
+            ├──MultiRawIdPosDur
+            ├──RawIdPosDur
+            ├──Controller
+        ├──src
+        ├──include
+        ├──CMakLists.txt
+        ├──package.xml
+```
+
+In Matlab, type:
+```
+ros2genmsg(folderPath)
+```
+to create custom message. Then, the message type will appear in the msg list.
+```
+ros2 msg list
+```
+
+### Access ROS2 bag file in Matlab ([Reference](https://au.mathworks.com/help/ros/ref/ros2bagreader.html))
+- An important function to read messages are **ros2bagreader(log_path)**
+- View specific topic message using **select(bag,"Topic","/motion_topic/multi_id_pos_dur")**
+- Make sure both **.db3** and **metadata.xml** files are in the *log_path*
 
 
