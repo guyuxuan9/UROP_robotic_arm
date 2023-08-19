@@ -104,6 +104,8 @@ The matlab file to generate the custom message in msg list in ROS Toolbox is giv
 - Make sure both **.db3** and **metadata.xml** files are in the *log_path*
 
 ### 3D trajectory && Servo Motor Pulse Width
+![7w8fdl](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/3c2d3f36-491f-41d0-a63f-cfae9b08ea1e)
+
 After getting data from the bag file, the 3D trajectory of the end effector is plotted using the [servo_angle_3d_trajectory.m](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/MatLab/servo_angle_3d_trajectory.m) file. The bag file is given in the [line8](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/MatLab/line8/) folder.
 
 **Video**:
