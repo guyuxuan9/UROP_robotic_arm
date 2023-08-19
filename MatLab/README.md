@@ -96,10 +96,18 @@ to create custom message. Then, the message type will appear in the msg list.
 ```
 ros2 msg list
 ```
+The matlab file to generate the custom message in msg list in ROS Toolbox is given in the [custom_message.m](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/MatLab/custom_message.m) file.
 
 ### Access ROS2 bag file in Matlab ([Reference](https://au.mathworks.com/help/ros/ref/ros2bagreader.html))
 - An important function to read messages are **ros2bagreader(log_path)**
 - View specific topic message using **select(bag,"Topic","/motion_topic/multi_id_pos_dur")**
 - Make sure both **.db3** and **metadata.xml** files are in the *log_path*
+
+### 3D trajectory && Servo Motor Pulse Width
+After getting data from the bag file, the 3D trajectory of the end effector is plotted using the [servo_angle_3d_trajectory.m](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/MatLab/servo_angle_3d_trajectory.m) file. The bag file is given in the [line8](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/MatLab/line8/) folder.
+
+**Video**:
+[![3D trajectory](https://user-images.githubusercontent.com/58468284/261761208-99dd782a-9e93-4c0a-a439-3c4fb1fe67ae.png)](https://youtu.be/4hUnGtIj8IU)
+
 
 
