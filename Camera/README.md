@@ -26,7 +26,25 @@ E.g.
 - Follow similar image processing techniques mentioned in **Color_Identification.ipynb** and draw the bounding box and minimum enclosing circle.
 - Three **PID controllers** are used to track the object.They are used to control x, y , and z position of the robotic arm respectively. Please refer to [Color_Tracking.ipynb](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/Camera/Color_Tracking.ipynb) for details.
 
-![7a6ed6d79620f30066b6d5e61e47cb9](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/585e4179-ebe4-4afc-8aab-3482d3260578)
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/0f46046e-3612-4351-a31c-1b7c18a9fc5a)
+
+**x_pid**:
+
+![55c41d88218b285b01990533fc2f970](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/71549ebd-265b-4964-96a7-b01b72d1e8b2)
+
+The aim of this PID controller is to align the object at the centre of the x-axis in the image window. It directly controls the servo angle of motor 6 since motor 6 is the only motor that can change the x position of the object in the image window.
+
+**y_pid**:
+
+![dffb8bbb5cf2e2d0c674889f27cb64d](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/1c131a4e-8722-4218-a77a-f6689bae93ad)
+
+The goal of this PID controller is to maintain a consistent distance between the object and the camera. Since directly measuring the distance with a camera can be challenging, the controller utilizes the object's area in the image window as an indicative measure of the distance.
+
+**z_pid**:
+
+![0367e1b250c1cfc4ef9bdda46b77fb5](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/d8b1e7f7-07db-4de5-bbd3-9affdaf0f4b5)
+
+The objective of this controller is to center the object along the y-axis within the image window. It's important to note that the y-axis within the image window corresponds to the z-axis in the reference frame of the robotic arm.
 
 - Note that the robotic arm will stop moving when the calculated angle from inverse kinematics is out of the given range. Normally, this happens when the object moves is "too high" for the camera. To make the robotic arm behave normally again, simply place the object at a high position and move downwards slowly and it will track the object successfully. 
 
