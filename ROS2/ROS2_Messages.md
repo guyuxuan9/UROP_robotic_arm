@@ -3,6 +3,11 @@
 ```
 [ [servo_id, position, duration], [servo_id, position, duration], [servo_id, position, duration], ...]
 ```
+
+To test if the message is successfully built in the ros2 msg list, type the following command:
+```
+ros2 interface show robot_interfaces/MultiRawIdPosDur 
+```
 This acts like a server and the following shows the running results. Here, I did not write it into a class. Instead, simple print statement is used for testing. 
 
 ![VirtualBox_Ubuntu_yuxuan_28_07_2023_21_22_41](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/5cd78734-6197-44f2-8182-01f09cb0c49c)
