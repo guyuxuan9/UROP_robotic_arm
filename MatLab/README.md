@@ -110,4 +110,8 @@ After getting data from the bag file, the 3D trajectory of the end effector is p
 [![3D trajectory](https://user-images.githubusercontent.com/58468284/261761208-99dd782a-9e93-4c0a-a439-3c4fb1fe67ae.png)](https://youtu.be/4hUnGtIj8IU)
 
 
+### Step Response
 
+The following plots show the step response of the robotic arm. The step input here refers to the sudden change in position of the tracking object. The servo motor 6 shows the most 'perfect' response shape since there is a PID controller direcly controlling the servo motor 6. Other motors are joinly controlled by y_PID and z_PID controllers. 
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/6d00197f-1b0b-49b6-8121-18e5eb406daf)
