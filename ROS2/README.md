@@ -16,6 +16,14 @@
 This verifies both the C++ and Python APIs are working properly.
 
 # ROS2 workspace
+First of all, in order to run ros2 commands, don't forget to source the setup bash file.
+```
+source /opt/ros/humble/setup.bash
+```
+To avoid doing this everytime a new terminal is opened, this command can be added to the **.bashrc** file which will run automatically when a new terminal is opened. Type the following to do so:
+```
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+```
 Use the following command to create a ros2 workspace. I make the workspace in the Documents/ folder
 ```
 cd ~/Documents
@@ -78,6 +86,25 @@ source install/setup.bash
 ```
 ros2 run <PACKAGE_NAME> NAME_SPECIFIED_AT_THE_ENTRY_POINT
 ```
+
+*PS: How to enable bidirectional copy & paste in Virtual Box?*
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/fa2f5a5e-309a-4189-b338-993eb7ffff6e)
+
+Then a CD disk image should be mounted on Linux machine. Navigate to the path where the CD image locates. In my case, the path is */media/yuxuan/VBox_GAs_7.0.10*.  Then type:
+```
+sudo sh ./VBoxLinuxAdditions.run
+```
+This will install the necessary additions and after which restart the machine
+```
+sudo reboot
+```
+After restarting the machine, select the bidirectional option under shared clipboard.
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/63229ec1-bad1-4166-a246-3c82a1aee7f1)
+
+The settings are done!
+
 ## Test for command sent to the robot
 - Details at [ROS2_Messages.md](https://github.com/guyuxuan9/UROP_robotic_arm/blob/main/ROS2/ROS2_Messages.md)
 
