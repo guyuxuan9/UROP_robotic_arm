@@ -49,3 +49,15 @@ As shown in the figure (nqt graph) above, this version separates the **PID_contr
 float32[] controller_out
 ```
 After executing the control algorithm, the output is published to the */controller/output* topic and the message has the same format as the input. Finally, the main tracker function subscribes to this topic and receives the controller output and do the following jobs as normal.
+
+## V3.0 Remote Controller
+In this final version of the colour tracker, the controller is moved from local raspberry pi to remote (virtual) machine. The main tracker sends the controller inputs to the topic */controller/input*. The controller subcribes to this topic in my virtual machine. Then, the PID algorithm is applied and after which the output is published to the topic *controller/output*. In the meantime, the main tracker subcribes to this output topic and do the following job.
+
+When the local controller is moved to remote machine without any tuning, it results in **unstable** behaviour due to time delay. The following video shows the unstable behaviour.
+
+[![unstable behaviour](https://user-images.githubusercontent.com/58468284/261861421-0aa01160-fb21-4bb4-9179-810d0824028f.jpg)](https://www.youtube.com/watch?v=f9KBYwtS_7E)
+
+Therefore, tuning needs to be done to stablise the system. As shown in the video, the robotic arm responds too quickly to the change in position. Therefore, the **P** term of the controller is decreased. Additionally, **D** term is decreased accordingly to reduce unnecessary oscillations.
+The following video shows the stable behaviour after tuning.
+
+[![remote control](https://user-images.githubusercontent.com/58468284/261861693-7eafc284-9ef3-435d-8484-70260e5420ea.png)](https://www.youtube.com/watch?v=CL-HJ2HWKag)
