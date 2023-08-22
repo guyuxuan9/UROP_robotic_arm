@@ -18,6 +18,11 @@ This is my Undergraduate Research Opportunities Program (UROP) in 2023 summer. T
 ## [VM VirtualBox setup](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/ROS2)
 - Install ROS2 (humble) in ubuntu 22.04
 - Create ROS packages, nodes, topics to learn ROS2 basics
+- [Reference (in Chinese)](https://blog.csdn.net/Amentos/article/details/127733864)
+- Install VScode, type:
+```
+sudo snap install --classic code
+```
 
 ## [Inverse Kinematics](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/Forward%26Inverse_Kinematics)
 - Model the robotic arm, considering 4 DOF
