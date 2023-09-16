@@ -51,10 +51,41 @@ https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/456c8372-d106-44ce
 
 https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/ed90fef1-d914-4d23-9ec1-9ac7635570ad
 
-- Use **PID controllers** to track the object.
+## [Remote Control](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/ROS2_WS/tracking)
 
-![7a6ed6d79620f30066b6d5e61e47cb9](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/585e4179-ebe4-4afc-8aab-3482d3260578)
-- Tune the P,I,D values to make the robot keeps tracking the object in x, y, z three dimensions
+- Use **PID controllers** to track the object (More details [here](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/Camera#color-tracking)).
 
-[![Color Tracking using robotic arm](https://user-images.githubusercontent.com/58468284/257811600-6ce9408b-ddb9-4418-8195-19763f5aa868.png)](https://youtu.be/yXHFDTK_ZeQ)
+**x_pid**:
+
+![55c41d88218b285b01990533fc2f970](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/71549ebd-265b-4964-96a7-b01b72d1e8b2)
+
+**y_pid**:
+
+![dffb8bbb5cf2e2d0c674889f27cb64d](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/1c131a4e-8722-4218-a77a-f6689bae93ad)
+
+**z_pid**:
+
+![0367e1b250c1cfc4ef9bdda46b77fb5](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/d8b1e7f7-07db-4de5-bbd3-9affdaf0f4b5)
+
+**Video showing the remote control of the robotic arm** (More details [here](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/ROS2_WS/tracking#v30-remote-controller))
+[![remote control](https://user-images.githubusercontent.com/58468284/261861693-7eafc284-9ef3-435d-8484-70260e5420ea.png)](https://www.youtube.com/watch?v=CL-HJ2HWKag)
+
+## [Result Analysis](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/MatLab)
+- 3D trajectory && Servo Motor Pulse Width
+
+**Video**:
+[![3D trajectory](https://user-images.githubusercontent.com/58468284/261761208-99dd782a-9e93-4c0a-a439-3c4fb1fe67ae.png)](https://youtu.be/4hUnGtIj8IU)
+
+- Step response:
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/6d00197f-1b0b-49b6-8121-18e5eb406daf)
+
+- $2^{nd}$ order model approximation of the kinematics of servo motor 6.
+
+![image](https://github.com/guyuxuan9/UROP_robotic_arm/assets/58468284/81bb6454-8870-4937-aa39-33378e1d4633)
+
+$$G(s) = \frac{34.03}{s^2 + 2.1s + 34.03},$$
+where $\xi = 0.18$ and $\omega_n = 5.83$.
+
+
 
