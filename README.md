@@ -1,5 +1,5 @@
 # Overview
-This is my Undergraduate Research Opportunities Program (UROP) in 2023 summer. The objective is to control the robotic arm remotely.
+This is my Undergraduate Research Opportunities Program (UROP) in 2023 summer under the supervision of Prof. Thomas Parisini and Dr. Kaiwen Chen. The objective is to control the colour-tracking robotic arm remotely.
 
 # Main work
 ## [Raspberry Pi setup](https://github.com/guyuxuan9/UROP_robotic_arm/tree/main/Raspberry_Pi_setup)
